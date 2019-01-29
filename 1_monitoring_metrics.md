@@ -118,4 +118,19 @@ __AMI Virtualization Types__
   - __NOTE__ : PV has special drivers for networking and storage that used less overhead than HVM. These drivers can no be run on HVM
     * AWS recommends using HVM because the performance is the same as PV and features like enhanced networking and GPU processing can be utilized when neccessary
 
+## EC2 Metrics
+
+_Basic Monitoring_ : 5 minute intervals
+_Detailed Monitoring_ : 1 minute intervals (will encure charges)
+
+* CPU Utilization
+* Disk Reads/Writes (_Bytes_)
+* Disk Read/Write Operations
+* Network In/Out (_Bytes_)
+* Network Packets In/Out (_Bytes_)
+* Status Check Failed
+
+__CloudWatch Agent__ - allows for collection of additiona in-guest metrics and logs from EC2 (and on-prem)
+  * Memory, disk-use, and swap file usage, etc.
+
 
