@@ -155,3 +155,49 @@ __CloudWatch Agent__ - allows for collection of additiona in-guest metrics and l
   - Exact copy of the original volume
     * Encryption included
   - Incremental in nature, but full volume can be restored from any snapshot
+
+## EBS Performance
+
+* __IOPS__ (input/output operations per second)
+
+* __SSDs__ Consistent performance with sequential and random operations
+  - Good for frequent read/write using small I/O sizes
+  - __IOPS__ measure with 256KiB I/O size
+* __HDDs__ Optimal performance with large and sequential operations
+  - Good for large streaming workloads (throughput)
+  - __IOPS__ measure with 1024KiB I/O size
+* __Burst Buckets__
+  - Allows an EBS volume to "burst" above baseline perfomance
+    * Volumes earn credits, that can be spent whenever volume needs more performance
+    * There is a maximum number of credits
+  - Not available for Provisioned IOS SSD (io1)
+  - Reported as a CloudWatch Metric
+
+#### SSD Volumes
+  * __General Purpose SSD Volumes (gp2)__
+    - Volume Size: 1GiB to 16TiB
+    - 100 to 10K IOPS
+      * 3 IOPS per GiB of volume size
+        - Minimum of 100 IOPS (below 33.3GiB volume size)
+      * Max throughput = 160MiB/s
+    - Burst Bucket
+  * __Provision IOPS SSD (io1)__
+    - 4GiB to 16TiB
+    - 100 to 32K IOPS
+    - AWs SLA = 99.9 of the time with 10% of provisioned IOPS
+    - Max Ratio is 50:1
+      * A 640GiB volume size or greater can use max IOPS
+    - AWS recommends a ration larger than 2:1 with Provisioned IOPS volumes
+    - Max througput = 500MiB/s
+
+#### HDD Volumes
+  * __Throughput Optimized HDD Volumes (st1)__
+    - Cannot be a boot device
+    - Ideal for frequently accessed and throughput intensive workloads
+  * __Cold HDD volumes (sc1)__
+    - Not supported as a boot device
+    - Ideal for infrequently accessed data and lower storage cost
+  * __Magnetic volumes__
+    - Deprecating
+    - Low-cost storage for small volume sizes
+    - 1Gib to 1TiB
