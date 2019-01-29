@@ -38,3 +38,18 @@ Notifications
         - HTML, Email, SQS, Application, Lambda, SMS, etc.
 
 ## CloudWatch Events
+
+- Similar to alarms, Instead of configuring thresholds and alarming on metrics, CloudWatch Events are matching event patterns and use targets to react.
+- Near real-time
+- Consist of three parts:
+  * Event Source - operation change in a service or can be scheduled
+  * Rules - route matching events to targets
+  * Targets - The services that will react to the event
+    - There can be more than one target
+    - Some of the services that can be targets
+      * EC2, Lambdas, ECS task
+      * Kinesis Data Streams and Firehose
+      * System Manager Run Command and Automation
+      * Code* projects
+      * SNS and SQS
+
