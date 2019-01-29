@@ -134,3 +134,24 @@ __CloudWatch Agent__ - allows for collection of additiona in-guest metrics and l
   * Memory, disk-use, and swap file usage, etc.
 
 
+## EBS Essentials
+
+* Up to 16 TiB (_Roughly 16 Terabytes_)
+* Volumes can only be mounted to one instance at a time
+* Multiple volumes can be mounted to a single instance
+* Raw, Unformated __block__ storage
+  - A file system must be created
+  - RAID is supported if the OS supports it
+* Created in a __AZ__ and must be used with instances in that __AZ__
+* Automatically replicated in that __AZ__
+  - Protects against hardware failure, but __not__ high availability
+* __Persistence__
+  - Attached volumes are independent of the instance
+    * Terminate the instance will __not__ terminate the volume
+  - Root volumes, by default, terminate with the instance
+    * This behavior is changed by setting _DeleteOnTermination_ to false
+* __Snapshots__ - images or backups of EBS volumes
+  - Stored in S3 (charged based on volume's total size)
+  - Exact copy of the original volume
+    * Encryption included
+  - Incremental in nature, but full volume can be restored from any snapshot
