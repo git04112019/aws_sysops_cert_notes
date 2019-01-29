@@ -53,3 +53,20 @@ Notifications
       * Code* projects
       * SNS and SQS
 
+## CloudWatch Logs
+
+Monitor, store and access your log files from
+  * __EC2__ - applications can be configured to send logs
+    - Exceptions, rate of errors, etc.
+    - Reuqires the installation of CW Unified Agent or Logs Agent (*legacy*)
+  * On-Prem Servers - *with Agent installed*
+  * CloudTrail - get logs from API activity in your account
+  * Route53 - log info from DNS queries
+
+#### Components
+  * __Log Events__ - Record of activity recorded by the monitored resource
+  * __Log Streams__ - sequence of log events from the same source/application
+  * __Log Groups__ - collection of log streams with same access control, monitoring and retention settings
+  * __Metric Filters__ - assigned to log groups it extracts data from the groups log streams and converts tat data into a Metric data point
+  * __Retention Settings__ - period of time logs are kept. assigned to log groups but applies to all streams in a group
+
