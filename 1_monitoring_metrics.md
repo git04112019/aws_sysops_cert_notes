@@ -97,3 +97,25 @@ Monitor, store and access your log files from
   - Solutions:
     * Make instance config changes
     * Reboot the instance
+
+## EC2 Instance Types
+
+__AMI Virtualization Types__
+
+* __Hardware Virtual Machine (HVM)__
+  - Executes the master boot record of the root storage device
+  - Virtual hardware set allows for running an OS as if it were running on the bare-metal
+  - No modification needed
+  - Can use hardware extensions
+    * Provices fast access to the host hardware
+    * Enhanced networking and GPU processing
+
+* __Paravirtual (PV)__
+  - Runs a specail boot loader then loads the kernel
+  - Can run on hardware that does not support virtualization
+  - No hardware extension support
+  - PV historically performed faster than HVM but that is no longer the case
+  - __NOTE__ : PV has special drivers for networking and storage that used less overhead than HVM. These drivers can no be run on HVM
+    * AWS recommends using HVM because the performance is the same as PV and features like enhanced networking and GPU processing can be utilized when neccessary
+
+
