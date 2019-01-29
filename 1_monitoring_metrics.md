@@ -221,3 +221,29 @@ __CloudWatch Agent__ - allows for collection of additiona in-guest metrics and l
   - Test run every 5 minutes
   - Returns: OK, warning, impaired, insufficient-data
   - User can change the result of the impaird response
+
+
+## EFS Monitoring
+
+* Highly Available, Scalable File System
+  - Spans multiple Availability Zones
+  - Throughput for parallel workloads
+    * Big Data, Analytics, Media Processing, Content Mangement, Web Serving
+  - Can be mounted to multiple EC2 instances or on-prem servers
+    - Centralized, common data store
+  - Windows not supported
+
+* Performance modes:
+  - __General Purpose__- most file system needs
+  - __Max I/O__- cases where hundreds or more instances access the file system
+    * Scales throughput and IOPS
+* Bursing
+  - Burst to 100MiB/s for any file system
+  - Larger than 1TiB = bursting 100MiB/s per TiB of data stored
+  - Credit system - earns at 50MiB/s per TiB of data stored
+* Security groups should be used to control NFS traffic
+  - Use EC2 security group as the source
+* Supports encryption using KMS
+* Metrics:
+  - __PermittedThroughput__
+  _ __BurstCreditBalance__
