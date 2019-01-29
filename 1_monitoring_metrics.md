@@ -201,3 +201,23 @@ __CloudWatch Agent__ - allows for collection of additiona in-guest metrics and l
     - Deprecating
     - Low-cost storage for small volume sizes
     - 1Gib to 1TiB
+
+## EBS Metrics
+*  __CloudWatch Metrics__
+  - 5-minute period data available at no charge
+  - Provisioned IOPS SSD send one-minute period data automatically
+  - Included metrics measured
+    * Volume Read/Write Bytes
+    * Volume Read/Write Ops
+    * VolumeTotal Read/Write Time
+    * VolumeIdleTime
+    * VolumeQueueLength
+    * VolumeThroughputPercentage
+    * VolumeConsumedReadWriteOps
+    * BurstBalance (_gp2, st1, and sc1 volumes only_)
+  - Keeping a snapshot in storage is cheaper than running an unused volume
+
+* __EBS Status Checks__
+  - Test run every 5 minutes
+  - Returns: OK, warning, impaired, insufficient-data
+  - User can change the result of the impaird response
