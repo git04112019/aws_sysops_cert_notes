@@ -70,3 +70,30 @@ Monitor, store and access your log files from
   * __Metric Filters__ - assigned to log groups it extracts data from the groups log streams and converts tat data into a Metric data point
   * __Retention Settings__ - period of time logs are kept. assigned to log groups but applies to all streams in a group
 
+
+## EC2 Status Checks
+
+* __System Status Checks__
+  - Reasons for Failure:
+    * Loss of network connectivity
+    * Loss of system power
+    * Software issues on physical host
+    * Hardware issues on the physical host that impact network reachability
+  - Resolutions
+    * EBS-backed instances:
+      - Stop/Start instances to obtain new underlying hardware
+    * Instance store-backed instances
+      - Terminate and replace the instance for new underlying hardware
+
+* __Instance Status Checks__
+  - Monitors the network and software configs on the an instance
+  - Must intervene to fix
+  - Reasons for Failure:
+    * Failed system status checks
+    * Incorrect networking or startup config
+    * Exhausted memory
+    * Corrupted file system
+    * Incompatible kernel
+  - Solutions:
+    * Make instance config changes
+    * Reboot the instance
